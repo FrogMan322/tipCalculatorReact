@@ -1,23 +1,20 @@
-import logo from './logo.svg';
-import './App.css';
-
+// eslint-disable-next-line
+import classes from "./App.module.css";
+import Cards from "./Cards";
+import Forms from "./Forms";
+import React, { useState } from "react";
 function App() {
+  const [curValue, setValue] = useState(0);
+  function valueHandler(value) {
+    const sum = value.bill * (1 + value.tip / 100);
+    setValue(sum);
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className={classes.container}>
+      <Cards>
+        <Forms getValue={valueHandler} />
+        <h1>Total:{curValue.toFixed(0)}</h1>
+      </Cards>
     </div>
   );
 }
