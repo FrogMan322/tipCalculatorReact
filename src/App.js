@@ -13,7 +13,7 @@ function App() {
     <div className={classes.container}>
       <Cards>
         <Forms getValue={valueHandler} />
-        <h1>Total:{curValue.toFixed(0)}</h1>
+        <h1>Total: {curValue.toFixed(0)}$</h1>
       </Cards>
     </div>
   );
